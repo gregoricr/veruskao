@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz em Andamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz.css"> </head>
+<body>
+    <main class="container">
+        <section id="div-quiz" class="card">
+            <header id="quiz-header">
+                <h2>Questão <span id="current-question-num">1</span> de <span id="total-questions-num">10</span></h2>
+            </header>
+            <div class="progress-bar-container">
+                <div id="quiz-progress-bar" class="progress-bar"></div>
+            </div>
+            <article id="question-container">
+                <p id="question-text">Carregando pergunta...</p>
+                <div id="alternatives-container"></div>
+            </article>
+            <footer id="quiz-actions">
+                <button id="answer-btn" class="btn" disabled>
+                    <span>Responder</span>
+                </button>
+            </footer>
+        </section>
+    </main>
+
+    <script src="../js/quiz.js" defer></script>
+</body>
+</html>

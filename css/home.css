@@ -1,0 +1,96 @@
+/* css/home.css */
+
+.radio-group {
+    display: grid;
+    gap: 1rem;
+}
+
+.radio-label {
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.radio-label:hover {
+    border-color: rgba(139, 93, 255, 0.5);
+}
+
+.radio-label input {
+    display: none;
+}
+
+.radio-label input:checked + .radio-content {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(139, 93, 255, 0.2);
+}
+
+.radio-content {
+    border: 2px solid var(--bg-secondary);
+    border-radius: 6px;
+    padding: 1rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.radio-title {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.radio-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.config-footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap; /* Para melhorar a responsividade em telas menores */
+}
+
+/* Estilo para inputs de número */
+input[type="number"] {
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all var(--transition-speed) ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139, 93, 255, 0.3);
+}
+
+/* Estilos para o select */
+select {
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all var(--transition-speed) ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139, 93, 255, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+.btn-secondary:hover:not(:disabled) {
+    background: var(--secondary);
+    color: var(--bg-main);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container">
+        <section id="div-login" class="card" role="form" aria-labelledby="login-title">
+            <h1 id="login-title">Quiz Interativo Ysraelly</h1>
+            <p>Configure a sua chave de API do Google Gemini para começar os seus estudos.</p>
+            <div class="form-group">
+                <label for="api-key">Chave de API do Google Gemini *</label>
+                <input type="text" id="api-key" placeholder="Cole a sua chave de API aqui" required>
+                <p id="api-key-error" style="color: var(--error); display: none; font-size: 0.9rem;"></p>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                    Obtenha a sua chave gratuita em: <strong>ai.google.dev</strong>
+                </p>
+                <div class="api-key-actions">
+                    <button id="clear-api-btn" class="btn btn-danger" style="display: none;">
+                        <span>Limpar Chave Salva</span>
+                    </button>
+                </div>
+            </div>
+            <button id="login-btn" class="btn">
+                <span>Validar e Entrar</span>
+            </button>
+        </section>
+    </main>
+
+    <script src="js/auth.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

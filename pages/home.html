@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo - Início</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/home.css"> </head>
+<body>
+    <main class="container">
+        <section class="card">
+            <h1>Gerador de Quiz Interativo</h1>
+            <p>Personalize o seu quiz para focar nos seus objetivos de estudo.</p>
+
+            <div class="form-group">
+                <label for="materia">Matéria</label>
+                <select id="materia">
+                    <option value="Matemática">Matemática</option>
+                    <option value="História">História</option>
+                    <option value="Biologia">Biologia</option>
+                    <option value="Física">Física</option>
+                    <option value="Química">Química</option>
+                    <option value="Literatura">Literatura</option>
+                    <option value="Geografia">Geografia</option>
+                    <option value="Português">Português</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="topico-especifico">Tópico Específico (Opcional)</label>
+                <input type="text" id="topico-especifico" placeholder="Ex: Análise Sintática, Revolução Francesa...">
+            </div>
+
+            <div class="form-group">
+                <label for="quantidade">Quantidade de Questões</label>
+                <input type="number" id="quantidade" value="5" min="1" max="50">
+            </div>
+            
+            <div class="form-group">
+                <label>Nível de Domínio</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="nivel" value="Estudo Inicial" checked>
+                        <div class="radio-content">
+                            <div class="radio-title">Estudo Inicial</div>
+                            <p class="radio-description">Questões mais conceituais.</p>
+                        </div>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="nivel" value="Meio Termo">
+                        <div class="radio-content">
+                            <div class="radio-title">Meio Termo</div>
+                            <p class="radio-description">Questões de aplicação prática.</p>
+                        </div>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="nivel" value="Revisão">
+                        <div class="radio-content">
+                            <div class="radio-title">Revisão</div>
+                            <p class="radio-description">Questões desafiadoras.</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <footer class="config-footer">
+                <button id="gerar-quiz-btn" class="btn">
+                    <span>✨ Gerar Quiz com IA</span>
+                </button>
+                <button id="ver-historico-btn" class="btn btn-secondary">
+                    <span>Ver Histórico</span>
+                </button>
+                 <button id="logout-btn" class="btn btn-danger">Sair</button>
+            </footer>
+        </section>
+    </main>
+    
+    <script src="../js/services/api.js" defer></script>
+    <script src="../js/home.js" defer></script>
+</body>
+</html>
