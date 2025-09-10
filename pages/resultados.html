@@ -8,18 +8,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/resultados.css"> <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/resultados.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <main class="container">
         <section id="div-resultados" class="card">
             <h1>O Seu Desempenho</h1>
             <div id="results-grid">
+                
                 <div class="card">
                     <h2>Resumo</h2>
-                    <p id="stats-summary">Acertos: 0 de 0</p>
-                    <p id="stats-percentage">Percentual: 0%</p>
+                    <div> <p id="stats-summary">Acertos: 0 de 0</p>
+                        <p id="stats-percentage">Percentual: 0%</p>
+                    </div>
                 </div>
+
                 <div class="card" id="chart-container">
                     <canvas id="results-chart"></canvas>
                 </div>
@@ -50,6 +55,8 @@
             </footer>
         </section>
     </main>
+    
+    <script src="../js/services/api.js" defer></script>
     <script src="../js/resultados.js" defer></script>
 </body>
 </html>

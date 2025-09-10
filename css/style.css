@@ -175,3 +175,23 @@ input.invalid {
     margin-top: 1.5rem;
     justify-content: flex-end;
 }
+/* Adicione ao final de style.css */
+
+footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--secondary);
+    color: var(--bg-main);
+}

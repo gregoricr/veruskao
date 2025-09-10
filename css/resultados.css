@@ -35,3 +35,10 @@
     gap: 1rem;
     margin-top: 1rem;
 }
+/* Adicione ao final de resultados.css */
+
+#results-grid > .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

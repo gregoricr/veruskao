@@ -1,4 +1,4 @@
-// js/quiz.js
+// js/quiz.js - VERSÃO COMPLETA E CORRIGIDA
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- ELEMENTOS DO DOM ---
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /** Exibe a pergunta atual e suas alternativas na tela */
     function displayCurrentQuestion() {
         if (currentQuestionIndex >= currentQuiz.length) {
+            // Fim do quiz! Salva os resultados e redireciona.
             sessionStorage.setItem('userAnswers', JSON.stringify(userAnswers));
             window.location.href = 'resultados.html';
             return;
@@ -101,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isCorrect = selectedAlternativeIndex === question.resposta_correta;
         const allButtons = alternativesContainerEl.querySelectorAll('.alternative-btn');
 
+        // Adiciona a resposta à lista de respostas do usuário
         userAnswers.push({
             pergunta: question.pergunta,
             resposta_usuario: selectedAlternativeIndex,
