@@ -1,4 +1,4 @@
-// js/services/api.js - VERSÃO CONSOLIDADA
+// js/services/api.js - VERSÃO COM MELHOR DEBUG
 
 /**
  * Constrói o prompt para GERAR QUESTÕES com base na configuração do usuário.
@@ -49,7 +49,8 @@ async function gerarQuestoesComIA(quizConfig) {
 
     if (!response.ok) {
         const errorBody = await response.json();
-        throw new Error(`Erro na API: ${errorBody.error.message}`);
+        // MUDANÇA AQUI: Adicionamos o response.status
+        throw new Error(`Erro na API (Status: ${response.status}): ${errorBody.error.message}`);
     }
     const result = await response.json();
     const questionsText = result.candidates[0].content.parts[0].text;
@@ -77,7 +78,8 @@ async function callGenericGemini(prompt) {
 
     if (!response.ok) {
         const errorBody = await response.json();
-        throw new Error(`Erro na API: ${errorBody.error.message}`);
+        // MUDANÇA AQUI: Adicionamos o response.status
+        throw new Error(`Erro na API (Status: ${response.status}): ${errorBody.error.message}`);
     }
     const result = await response.json();
     return result.candidates[0].content.parts[0].text;

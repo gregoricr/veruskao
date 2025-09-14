@@ -1,4 +1,4 @@
-// js/resultados.js - VERSÃO CONSOLIDADA
+// js/resultados.js - VERSÃO FINAL CONSOLIDADA
 
 document.addEventListener('DOMContentLoaded', () => {
     const userAnswers = JSON.parse(sessionStorage.getItem('userAnswers'));
@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ELEMENTOS DO DOM ---
     const gerarAnaliseBtn = document.getElementById('gerar-analise-btn');
+    const gerarPlanoBtn = document.getElementById('gerar-plano-btn');
     const analiseContainer = gerarAnaliseBtn.parentElement.parentElement;
+    const planoContainer = gerarPlanoBtn.parentElement.parentElement;
     const statsSummaryEl = document.getElementById('stats-summary');
     const statsPercentageEl = document.getElementById('stats-percentage');
     const conceptsToReviewList = document.getElementById('concepts-to-review');
@@ -55,9 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             const prompt = `Aja como um tutor especialista. Um estudante realizou um quiz e estes foram os seus erros: ${JSON.stringify(wrongAnswers)}. Forneça uma análise concisa (um parágrafo), encorajadora e perspicaz, identificando possíveis padrões de erro e sugerindo uma abordagem geral para melhorar. Fale diretamente com o estudante.`;
-
             const analiseResult = await callGenericGemini(prompt);
-
             container.innerHTML = `<p>${analiseResult}</p>`;
         } catch (error) {
             console.error("Erro ao gerar análise:", error);
@@ -65,12 +65,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Botão do plano de estudos (ainda como placeholder)
-    document.getElementById('gerar-plano-btn').addEventListener('click', () => {
-        alert('Funcionalidade de plano de estudos com IA será implementada em breve!');
+    // 5. EVENT LISTENER PARA O BOTÃO DE PLANO DE ESTUDOS
+    gerarPlanoBtn.addEventListener('click', async () => {
+        const container = planoContainer.querySelector('.ia-actions');
+        gerarPlanoBtn.disabled = true;
+        gerarPlanoBtn.innerHTML = '<div class="spinner"></div> <span>Gerando plano...</span>';
+
+        try {
+            if (uniqueWrongConcepts.length === 0) {
+                container.innerHTML = '<p>Você acertou tudo! Sugestão: pratique um tópico novo ou aumente a dificuldade. 🚀</p>';
+                return;
+            }
+            const prompt = `Aja como um tutor experiente. Baseado nos seguintes conceitos em que o aluno errou: ${uniqueWrongConcepts.join(', ')}. Crie um "Micro Plano de Estudo" com exatamente 3 passos acionáveis e específicos para ele melhorar nesses pontos. Formate a resposta de forma clara, usando quebras de linha.`;
+            const planoResult = await callGenericGemini(prompt);
+            // Substitui quebras de linha (\n) do texto por tags <br> para funcionar no HTML
+            container.innerHTML = `<p>${planoResult.replace(/\n/g, '<br>')}</p>`;
+        } catch (error) {
+            console.error("Erro ao gerar plano:", error);
+            container.innerHTML = `<p style="color: var(--error);">Erro ao gerar plano: ${error.message}</p>`;
+        }
     });
 });
-
 
 /**
  * Renderiza o gráfico de pizza (doughnut) com os resultados.
